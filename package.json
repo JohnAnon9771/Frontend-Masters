@@ -1,0 +1,23 @@
+{
+  "name": "Intro-to-react-V5",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "JohnAnon9771 <njoao97710@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "formated": "prettier \"src/**/*.{js, html, css}\" --write",
+    "lint": "eslint \"src/**/*.{js, jsx}\" --quiet",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^2.1.2"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
