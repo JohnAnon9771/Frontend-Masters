@@ -1,14 +1,17 @@
 import React from 'react';
 
 import { render } from 'react-dom';
-import SearchParams from './SearchParams';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes';
 
 function App() {
   return (
-    <div id="something-important">
-      <h1>Adopt Me!</h1>
-      <SearchParams />
-    </div>
+    <BrowserRouter>
+      <div id="something-important">
+        <h1>Adopt Me!</h1>
+        <Routes />
+      </div>
+    </BrowserRouter>
   );
 }
 
