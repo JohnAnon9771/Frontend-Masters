@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { render } from 'react-dom';
 import SearchParams from './SearchParams';
 
@@ -11,4 +12,9 @@ function App() {
   );
 }
 
-render(<App />, document.getElementById('root'));
+render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
