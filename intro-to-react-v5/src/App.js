@@ -1,13 +1,13 @@
 import React, { useState, Suspense } from 'react';
 
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import NavBar from './NavBar';
 import Routes from './routes';
 import ThemeContext from './ThemeContext';
 
-function App() {
+export default function App() {
   const themeHook = useState('darkblue');
   return (
     <ThemeContext.Provider value={themeHook}>
@@ -23,9 +23,9 @@ function App() {
   );
 }
 
-render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
+// render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById('root'),
+// );
