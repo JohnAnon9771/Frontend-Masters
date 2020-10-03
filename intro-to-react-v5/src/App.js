@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 
 import { render } from 'react-dom';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+
 import NavBar from './NavBar';
 import Routes from './routes';
 import ThemeContext from './ThemeContext';
@@ -13,7 +14,9 @@ function App() {
       <BrowserRouter>
         <div id="something-important">
           <NavBar />
-          <Routes />
+          <Suspense fallback={<h1>Loading route...</h1>}>
+            <Routes />
+          </Suspense>
         </div>
       </BrowserRouter>
     </ThemeContext.Provider>

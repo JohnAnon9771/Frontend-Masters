@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Details from './Details';
 import SearchParams from './SearchParams';
+
+const Details = lazy(() => import('./Details'));
 
 function Routes() {
   return (
