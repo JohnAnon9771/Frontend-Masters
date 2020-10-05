@@ -1,15 +1,15 @@
-import React, { useState, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import NavBar from './NavBar';
 import Routes from './routes';
-import ThemeContext from './ThemeContext';
+import store from './store';
 
 export default function App() {
-  const themeHook = useState('darkblue');
   return (
-    <ThemeContext.Provider value={themeHook}>
+    <Provider store={store}>
       <BrowserRouter>
         <div id="something-important">
           <NavBar />
@@ -18,7 +18,7 @@ export default function App() {
           </Suspense>
         </div>
       </BrowserRouter>
-    </ThemeContext.Provider>
+    </Provider>
   );
 }
 

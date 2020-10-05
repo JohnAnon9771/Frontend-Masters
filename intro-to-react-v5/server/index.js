@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderToNodeStream, renderToString } from 'react-dom/server';
+import { renderToNodeStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 
 import express from 'express';

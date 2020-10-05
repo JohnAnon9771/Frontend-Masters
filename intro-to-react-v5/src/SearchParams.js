@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import pet, { ANIMALS } from '@frontendmasters/pet';
 
-import useDropdown from './useDropdown';
 import Results from './Results';
 import ThemeContext from './ThemeContext';
+import useDropdown from './useDropdown';
 
-function SearchParams() {
+function SearchParams(props) {
+  // const location = useSelector((state) => state.location);
+  // const dispatch = useDispatch();
   const [location, setLocation] = useState('Seattle, WA');
   const [breeds, setBreeds] = useState([]);
   const [animal, AnimalDropdown] = useDropdown('Animal', 'dog', ANIMALS);
@@ -16,7 +20,7 @@ function SearchParams() {
 
   async function requestPets() {
     const { animals } = await pet.animals({
-      location,
+      location: props.location,
       breed,
       type: animal,
     });
