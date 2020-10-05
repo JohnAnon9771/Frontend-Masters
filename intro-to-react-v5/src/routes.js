@@ -1,5 +1,6 @@
 import React, { lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
+
 import SearchParams from './SearchParams';
 
 const Details = lazy(() => import('./Details'));

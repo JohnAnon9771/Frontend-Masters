@@ -1,17 +1,37 @@
 import React, { lazy } from 'react';
-import pet from '@frontendmasters/pet';
+import { RouteComponentProps } from 'react-router-dom';
+
+import pet, { Photo } from '@frontendmasters/pet';
 
 import Carousel from './Carousel';
 import ErrorBoundary from './ErrorBoundary';
 
 const Modal = lazy(() => import('./Modal'));
 
-class Details extends React.Component {
-  state = { loading: true, showModal: false };
+class Details extends React.Component<
+  RouteComponentProps<{
+    id: string;
+  }>
+> {
+  public state = {
+    loading: true,
+    showModal: false,
+    name: '',
+    animal: '',
+    location: '',
+    description: '',
+    media: [] as Photo[],
+    url: '',
+    breed: '',
+  };
 
-  componentDidMount() {
+  public componentDidMount() {
+    if (!this.props.id) {
+      this.props.history.push('/');
+      return;
+    }
     pet
-      .animal(this.props.id)
+      .animal(+this.props.id)
       .then(({ animal }) => {
         this.setState({
           url: animal.url,

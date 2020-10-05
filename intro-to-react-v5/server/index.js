@@ -1,7 +1,8 @@
 import React from 'react';
-import express from 'express';
 import { renderToNodeStream, renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
+
+import express from 'express';
 import fs from 'fs';
 
 import App from '../src/App';
