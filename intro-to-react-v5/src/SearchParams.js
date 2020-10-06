@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import pet, { ANIMALS } from '@frontendmasters/pet';
 
@@ -7,7 +6,7 @@ import Results from './Results';
 import ThemeContext from './ThemeContext';
 import useDropdown from './useDropdown';
 
-function SearchParams(props) {
+function SearchParams() {
   // const location = useSelector((state) => state.location);
   // const dispatch = useDispatch();
   const [location, setLocation] = useState('Seattle, WA');
@@ -18,13 +17,16 @@ function SearchParams(props) {
 
   const [theme, setTheme] = useContext(ThemeContext);
 
-  async function requestPets() {
-    const { animals } = await pet.animals({
-      location: props.location,
-      breed,
-      type: animal,
-    });
-    setPets(animals || []);
+  function requestPets() {
+    pet
+      .animals({
+        location,
+        breed,
+        type: animal,
+      })
+      .then(({ animals }) => {
+        setPets(animals || []);
+      });
   }
 
   useEffect(() => {
